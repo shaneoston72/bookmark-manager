@@ -4,6 +4,8 @@ ruby '2.2.3'
 
 gem 'sinatra'
 gem 'rake'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
 
 group :test do
   gem 'rspec'
@@ -14,7 +16,7 @@ group :test do
   gem 'capybara'
   gem 'byebug'
   gem 'selenium-webdriver'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
+  # gem 'data_mapper'
+  # gem 'dm-postgres-adapter'
   gem 'database_cleaner'
 end
