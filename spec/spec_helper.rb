@@ -45,7 +45,7 @@ require './app/app'
 
 Capybara.app = BookmarkManager
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
