@@ -17,4 +17,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
+  gem 'database_cleaner'
 end

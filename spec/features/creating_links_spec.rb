@@ -1,4 +1,5 @@
-feature 'add new link' do
+feature 'creating_links_spec: add new link' do
+
   scenario 'submit a link' do
     visit '/links/new'
     fill_in(:url, with: "http://www.google.com")
