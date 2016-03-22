@@ -9,4 +9,5 @@ group :test do
   gem 'capybara'
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
+  gem 'sinatra/base'
 end
