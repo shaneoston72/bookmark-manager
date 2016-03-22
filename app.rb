@@ -1,8 +1,10 @@
 require 'sinatra/base'
 
+
 class App < Sinatra::Base
   get '/' do
     'Hello app!'
+    Link.new
   end
 
   # start the server if ruby file executed directly

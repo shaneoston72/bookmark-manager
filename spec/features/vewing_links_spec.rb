@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 feature 'viewing_links_spec: Bookmark Manager' do
 
   scenario 'show links' do
