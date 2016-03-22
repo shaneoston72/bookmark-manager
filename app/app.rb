@@ -4,8 +4,11 @@ require_relative './models/link'
 class BookmarkManager < Sinatra::Base
 enable :sessions
 
-  get '/links' do
+  before do
     @links = Link.all
+  end
+
+  get '/links' do
     erb :"links/index"
   end
 
@@ -14,7 +17,6 @@ enable :sessions
   end
 
   post '/links' do
-    @links = Link.all
     title = params[:title]
     url = params[:url]
     Link.create(url: url, title: title )
