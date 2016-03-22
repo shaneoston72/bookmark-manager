@@ -4,7 +4,9 @@ feature 'new link' do
     fill_in :title, with: 'Makers Academy'
     fill_in :url, with: 'http://www.makersacademy.com'
     click_button 'Submit'
-    visit '/links'
-    expect(page).to have_content('Makers Academy')
+    expect(current_path).to eq '/links'
+    within 'ul#links' do
+      expect(page).to have_content('Makers Academy')
+    end
   end
 end
