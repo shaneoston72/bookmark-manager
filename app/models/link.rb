@@ -7,6 +7,8 @@ class Link
   property :id, Serial
   property :url, String
   property :title, String
+
+
 end
 
 DataMapper.setup(:default, "postgres://localhost/bookmark_manager_test")
