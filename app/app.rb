@@ -20,8 +20,8 @@ enable :sessions
 
   post '/links' do
     link = Link.new(url: params[:url], title: params[:title])
-    tag = Tag.create(name: params[:name])
-    link.tags << tag
+    tags = params[:name].gsub(/, /, ',').split(',')
+    tags.each{ |tag| link.tags << Tag.create(name: tag) }
     link.save
     redirect to('/links')
   end

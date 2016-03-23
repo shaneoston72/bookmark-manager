@@ -20,6 +20,9 @@ ENV["RACK_ENV"] = "tests"
 require 'capybara/rspec'
 require './app/app'
 require 'database_cleaner'
+require 'rake'
+
+Rake::Task['test'].invoke
 
 RSpec.configure do |config|
 
