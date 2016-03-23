@@ -2,13 +2,13 @@ source "https://rubygems.org"
 
 ruby '2.3.0'
 
-gem 'rake'
+  gem 'rake'
+  gem 'sinatra'
+  gem 'dm-postgres-adapter'
+  gem 'data_mapper'
 
 group :test do
   gem 'rspec-sinatra'
   gem 'capybara'
-  gem 'data_mapper'
-  gem 'dm-postgres-adapter'
   gem 'database_cleaner'
-  gem 'sinatra'
 end
