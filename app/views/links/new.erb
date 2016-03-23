@@ -1,7 +1,16 @@
-<h1>Bookmark Manager</h1>
-<h2>Add a new link</h2>
+
+<h1>Add new links:</h1>
+
 <form action='/links' method='post'>
-  <input type='text' name='title' placeholder="Title">
-  <input type='text' name='url' placeholder="URL WITH http(s)">
-  <input type='submit' value='submit'>
+  <div>
+    <input type="text" name="title" placeholder="Title">
+  </div>
+  <div>
+    <input type="text" name="url" placeholder="URL">
+  </div>
+  <div>
+    <input type="text" name="name" placeholder="tags">
+  </div>
+  <input type="submit" value="Submit">
+
 </form>

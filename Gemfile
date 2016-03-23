@@ -1,22 +1,15 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.2.3'
+ruby '2.3.0'
 
-gem 'sinatra'
-gem 'rake'
-gem 'data_mapper'
-gem 'dm-postgres-adapter'
+  gem 'rake'
+  gem 'sinatra'
+  gem 'dm-postgres-adapter'
+  gem 'data_mapper'
 
 group :test do
-  gem 'rspec'
   gem 'rspec-sinatra'
-  #gem 'rubocop-rspec'
-  #gem 'rubocop'
-  gem 'coveralls', require: false
+  gem 'rspec'
   gem 'capybara'
-  gem 'byebug'
-  gem 'selenium-webdriver'
-  # gem 'data_mapper'
-  # gem 'dm-postgres-adapter'
   gem 'database_cleaner'
 end

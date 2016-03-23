@@ -1,13 +1,13 @@
-feature 'creating_links_spec: add new link' do
 
-  scenario 'submit a link' do
+feature 'new link' do
+  scenario 'creates a new link with form' do
     visit '/links/new'
-    fill_in(:url, with: "http://www.google.com")
-    fill_in(:title, with: "Google")
-    click_button "submit"
+    fill_in :title, with: 'Makers Academy'
+    fill_in :url, with: 'http://www.makersacademy.com'
+    click_button 'Submit'
     expect(current_path).to eq '/links'
     within 'ul#links' do
-      expect(page).to have_content("Google")
+      expect(page).to have_content('Makers Academy')
     end
   end
 end
