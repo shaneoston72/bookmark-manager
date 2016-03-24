@@ -9,6 +9,12 @@ feature 'register user' do
   feature 'requires maching password' do
     scenario 'passwords do not match' do
       expect{ sign_up( password_confirmation: 'wrong') }.not_to change(User, :count)
+      expect(current_path).to eq '/users/new'
+    end
+
+    scenario 'returns an error message' do
+      sign_up( password_confirmation: 'wrong') 
+      expect(page).to have_content "Password and confirmation password do not match"
     end
   end
 end

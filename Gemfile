@@ -7,6 +7,7 @@ ruby '2.3.0'
   gem 'dm-postgres-adapter'
   gem 'data_mapper'
   gem 'bcrypt'
+  gem 'sinatra-flash'
 
 group :test do
   gem 'rspec-sinatra'
