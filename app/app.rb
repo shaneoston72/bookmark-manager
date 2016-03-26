@@ -4,12 +4,28 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 
-
 class BookmarkManager < Sinatra::Base
+
+  use Rack::MethodOverride
 
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+
+  get '/sessions/new' do
+    erb :'sessions/new'
+  end
+
+  post '/sessions' do
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect to '/links'
+    else
+      flash.now[:errors] = ['The email or password is incorrect']
+      redirect to 'sessions/new'
+    end
+  end
 
   before do
     @links = Link.all
@@ -37,9 +53,9 @@ class BookmarkManager < Sinatra::Base
     erb :"links/index"
   end
 
-  get '/users/new' do
+  get '/users' do
     @user = User.new
-    erb :'users/new'
+    erb :'/users/index'
   end
 
   post '/users' do
@@ -51,8 +67,8 @@ class BookmarkManager < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/links')
     else
-      flash.next[:error] = "Password and confirmation password do not match"
-      redirect('/users/new')
+      flash.next[:errors] = @user.errors.full_messages
+      redirect to('/users')
     end
   end
 
@@ -65,6 +81,12 @@ class BookmarkManager < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye'
+    redirect to 'links'
   end
 
 run! if app_file == $0

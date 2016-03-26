@@ -1,8 +1,11 @@
 <h1>Create your account</h1>
-<% if flash[:error] %>
-<p>
-  <%= flash[:error] %>
-</p>
+<% if flash[:errors] && !flash[:errors].empty? %>
+<p>Please resolve the following errors:</p>
+<ul id='errors'>
+  <% flash[:errors].each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
 <% end %>
 
 <form action="/users" method="post">
